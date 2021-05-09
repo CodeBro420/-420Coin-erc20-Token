@@ -1,23 +1,11 @@
+/**
+ *Submitted for verification at Etherscan.io on 2021-05-02
+*/
+
 pragma solidity 0.6.6;
 
-// ----------------------------------------------------------------------------
-// 'DMTCoin' token contract
-//
-// Deployed to : 0x2DB0e9055956E2CB63821C4A65575a6ea7c6A9A6
-// Symbol      : 420
-// Name        : 420Coin
-// Total supply: 1000000000000000000000000000
-// Decimals    : 18
-//
-// Enjoy.
-//
-// (c) by Ahiwe Onyebuchi Valentine.
-// ----------------------------------------------------------------------------
 
 
-// ----------------------------------------------------------------------------
-// Safe maths
-// ----------------------------------------------------------------------------
 contract SafeMath {
     function safeAdd(uint a, uint b) public pure returns (uint c) {
         c = a + b;
@@ -38,10 +26,6 @@ contract SafeMath {
 }
 
 
-// ----------------------------------------------------------------------------
-// ERC Token Standard #20 Interface
-// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
-// ----------------------------------------------------------------------------
 abstract contract ERC20Interface {
     function totalSupply() virtual public view returns (uint);
     function balanceOf(address tokenOwner) virtual public view returns (uint balance);
@@ -99,7 +83,7 @@ contract Owned {
 // ERC20 Token, with the addition of symbol, name and decimals and assisted
 // token transfers
 // ----------------------------------------------------------------------------
-contract DMTCoin is ERC20Interface, Owned, SafeMath {
+contract fourtwentyCoin is ERC20Interface, Owned, SafeMath {
     string public symbol;
     string public  name;
     uint8 public decimals;
@@ -151,14 +135,7 @@ contract DMTCoin is ERC20Interface, Owned, SafeMath {
     }
 
 
-    // ------------------------------------------------------------------------
-    // Token owner can approve for spender to transferFrom(...) tokens
-    // from the token owner's account
-    //
-    // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
-    // recommends that there are no checks for the approval double-spend attack
-    // as this should be implemented in user interfaces 
-    // ------------------------------------------------------------------------
+
     function approve(address spender, uint tokens) public override returns (bool success) {
         allowed[msg.sender][spender] = tokens;
         emit Approval(msg.sender, spender, tokens);
